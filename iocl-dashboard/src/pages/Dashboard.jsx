@@ -12,7 +12,6 @@ function Dashboard() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        // const apiKey = 'e7575001ce5241e9a59b3e9019751fec';
         const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 
         const response = await axios.get(
