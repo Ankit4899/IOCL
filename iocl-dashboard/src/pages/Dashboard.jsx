@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
-
+import dotenv from 'dotenv';
 function Dashboard() {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,7 +12,9 @@ function Dashboard() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const apiKey = 'e7575001ce5241e9a59b3e9019751fec';
+        // const apiKey = 'e7575001ce5241e9a59b3e9019751fec';
+        const apiKey = import.meta.env.VITE_NEWS_API_KEY;
+
         const response = await axios.get(
           `https://newsapi.org/v2/everything?q=iocl&sortBy=publishedAt&language=en&apiKey=${apiKey}`
         );
